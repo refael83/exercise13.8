@@ -37,3 +37,21 @@ buttonMale.addEventListener("click", async () => {
       throw new Error("שגיאה");
     }
   });
+
+  //exercise 2
+  async function jokeApi(){
+    try{
+     const response=await fetch("https://api.humorapi.com/jokes/search?api-key=e17b1bf95cdc40be8799a496d0cf223e")
+     if (response.ok) {
+      const data = await response.json();
+       let joke=document.getElementById('1');
+      joke.innerText=data.jokes[0].joke
+      console.log(data);
+      
+    }
+    }catch{
+      
+    }
+    
+  }
+  jokeApi();
